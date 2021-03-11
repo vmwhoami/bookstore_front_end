@@ -8,7 +8,6 @@ The project includes the basic features of
 - Removing books from the bookstore
 - Filtering through the books by category.
 
-
 ![screenshot](./bookstore.gif)
 
 ## Getting Started
@@ -36,7 +35,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Live Demo
 
-Open [this link](https://bookstoremilestone5.herokuapp.com/) to view it on heroku.
+Open [this link](https://bookstorefrontend.netlify.app/) to view it on heroku.
 
 ## Available Scripts
 

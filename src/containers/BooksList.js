@@ -55,16 +55,13 @@ const mapStateToProps = state => ({
 });
 
 BooksList.propTypes = {
-  // removeBook: PropTypes.func.isRequired,
   changeFilter: PropTypes.func.isRequired,
   fetchBooks: PropTypes.func.isRequired,
   deleteBook: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  // removeBook: id => {
-  //   dispatch(removeBook(id));
-  // },
+
   changeFilter: category => {
     dispatch(changeFilter(category));
   },

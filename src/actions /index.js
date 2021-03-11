@@ -23,7 +23,12 @@ const fetchBooksSuccess = books => ({
   type: act.FETCH_BOOKS_SUCCESS,
   payload: { books },
 });
+
+const deleteBookSuccess = id => ({
+  type: act.DELETE_BOOK_SUCCESS, id,
+});
 const url = 'https://bookstoreapiakata.herokuapp.com/books';
+
 const saveBookToDb = obj => async dispatch => {
   axios.post(url, {
     books: obj,
@@ -39,6 +44,17 @@ const fetchBooks = () => async dispatch => {
   }
 };
 
+const deleteBook = id => async dispatch => {
+  try {
+    return axios.delete(`${url}/${id}`)
+      .then(() => {
+        dispatch(deleteBookSuccess(id));
+      });
+  } catch (e) {
+    return e;
+  }
+};
+
 export {
-  addBook, removeBook, changeFilter, saveBookToDb, fetchBooks,
+  addBook, removeBook, changeFilter, saveBookToDb, fetchBooks, deleteBook,
 };

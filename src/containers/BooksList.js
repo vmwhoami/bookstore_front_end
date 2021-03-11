@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import CategoryFilter from '../components/CategoryFilter';
-import { removeBook, changeFilter, fetchBooks } from '../actions ';
+import {
+  changeFilter, fetchBooks, deleteBook,
+} from '../actions ';
 
 const BooksList = ({
-  books, removeBook, changeFilter, filter, fetchBooks,
+  books, changeFilter, filter, fetchBooks, deleteBook,
 }) => {
   useEffect(() => {
     fetchBooks();
@@ -17,7 +19,7 @@ const BooksList = ({
   let categories = books.map(book => book.category);
   categories = [...new Set(categories)];
   const handleRemoveBook = id => {
-    removeBook(id);
+    deleteBook(id);
   };
   return (
     <>
@@ -53,20 +55,24 @@ const mapStateToProps = state => ({
 });
 
 BooksList.propTypes = {
-  removeBook: PropTypes.func.isRequired,
+  // removeBook: PropTypes.func.isRequired,
   changeFilter: PropTypes.func.isRequired,
   fetchBooks: PropTypes.func.isRequired,
+  deleteBook: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  removeBook: id => {
-    dispatch(removeBook(id));
-  },
+  // removeBook: id => {
+  //   dispatch(removeBook(id));
+  // },
   changeFilter: category => {
     dispatch(changeFilter(category));
   },
   fetchBooks: () => {
     dispatch(fetchBooks());
+  },
+  deleteBook: id => {
+    dispatch(deleteBook(id));
   },
 });
 

@@ -1,36 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReduxThunk from 'redux-thunk';
 import './index.css';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import rootReducer from './reducers ';
+// import { fetchBooks } from './actions ';
 
 const initial = {
   books: [
     {
-      id: Math.floor(Math.random() * 100),
-      title: 'Book of life',
-      category: 'Adventure',
-    },
-
-    {
-      id: Math.floor(Math.random() * 100),
-      title: 'Book of heaven',
+      id: 10,
+      title: 'Antic Hay',
       category: 'Fiction',
+      author: 'An Evil Cradling',
     },
-
   ],
-
-  filter: 'All',
 };
+
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
   rootReducer, initial,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  composeWithDevTools(applyMiddleware(ReduxThunk)),
 );
-
+// store.dispatch(fetchBooks());
 /* eslint-enable */
 ReactDOM.render(
   <React.StrictMode>

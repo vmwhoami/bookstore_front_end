@@ -7,9 +7,12 @@ The project includes the basic features of
 - Updating the bookstore with recent books usign the Add book button
 - Removing books from the bookstore
 - Filtering through the books by category.
-
+- Connect to the back-end.
+- Create Read Delete operations connecting to the rails backend
 
 ![screenshot](./bookstore.gif)
+
+# !Attention! the back-end is on heroku so it needs some time to wake up if it is asleep!
 
 ## Getting Started
 
@@ -36,7 +39,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Live Demo
 
-Open [this link](https://bookstoremilestone5.herokuapp.com/) to view it on heroku.
+Open [this link](https://bookstorefrontend.netlify.app/) to view it on heroku.
 
 ## Available Scripts
 
